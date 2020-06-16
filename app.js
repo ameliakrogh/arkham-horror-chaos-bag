@@ -33,5 +33,27 @@ difficultySelector.addEventListener('input', function displayTokens(event){
         }
     });
 
+//Function to randomly select a token from the bag
+function randomToken(tokenBag) {
+    return tokenBag[Math.floor(Math.random() * tokenBag.length)];
+}
+
 //TODO: add listener event for 'draw chaos token' button and randomly select an item from the set difficulty chaos bag
+const drawTokenButton = document.getElementById("draw-token-button");
+drawTokenButton.addEventListener('click', function displayAToken(){
+    switch (difficultySelector.value) {
+        case "Easy":
+            console.log(randomToken(easyTokenBag));
+            break;
+        case "Standard":
+            console.log(randomToken(standardTokenBag));
+            break;
+        case "Hard":
+            console.log(randomToken(hardTokenBag));
+                break;
+        case "Expert":
+            console.log(randomToken(expertTokenBag));
+    }
+});
+
 //TODO: display the last drawn token to the user if they keep drawing tokens
