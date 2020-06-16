@@ -3,23 +3,24 @@
 <head>
 	<meta charset="utf-8">
 	<title>Arkham Chaos Bag</title>
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class = "dropdown">
+    <div class = "container">
+        <header>
+            <h1>Arkham Chaos Bag</h1>
+        </header>
 <!-- A drop down menu that allows you to select your preferred playing difficulty. -->
 <!-- The difficulty selected changes the tokens included in the bag -->
-        <label for="difficulty-select">Difficulty</label>
         <select name="difficulty" id="difficulty-select">
+            <option disabled selected value= "">Difficulty</option>
             <option value="Easy">Easy</option>
             <option value="Standard">Standard</option>
             <option value="Hard">Hard</option>
             <option value="Expert">Expert</option>
         </select>
-    </div>
 <!-- A button that will trigger a function to select a token from the bag at random -->
-    <div class = "button">
-        <button type="button">Draw Chaos Token</button>
+            <button type="button">Draw Chaos Token</button>
     </div>
     <script> src= "app.js"</script>
 </body>
