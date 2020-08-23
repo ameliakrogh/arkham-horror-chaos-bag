@@ -7,14 +7,20 @@
 
 header {
     text-align: center;
+    color: #014d54;
 }
 
 select {
     width: 15%;
     margin-bottom: 1%;
+    border: 1px solid #ced4da;
+    color: #495057;
 }
 
 button {
     width:15%;
     margin-bottom: 1%;
+    background-color: #659c80;
+    border-color: #659c80;
+    color: #ffffff;
 }

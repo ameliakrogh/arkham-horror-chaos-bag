@@ -3,11 +3,13 @@ let easyTokenBag = ["+1", "+1", "0", "0", "0", "-1", "-1", "-1", "-2", "-2", "sk
 let standardTokenBag = ["+1", "0", "0", "-1", "-1", "-1", "-2", "-2", "-3", "-4", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
 let hardTokenBag = ["0", "0", "0", "-1", "-1", "-2", "-2", "-3", "-3", "-4", "-5", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
 let expertTokenBag = ["0", "-1", "-1", "-2", "-2", "-3", "-3", "-4", "-4", "-5", "-6", "-8", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
+let tokens = [];
 
 //Select main container to add new elements to
 const divContainer = document.querySelector('.container');
 const tokenBagDiv = document.createElement('div');
 const displayTokenDiv = document.createElement('div');
+const displayLastToken = document.createElement('div');
 
 //Display the relevant array of tokens to the user on screen once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
@@ -40,18 +42,30 @@ drawTokenButton.addEventListener('click', function displayAToken(){
     difficultySelector.after(displayTokenDiv);
     switch (difficultySelector.value) {
         case "Easy":
-            displayTokenDiv.textContent = randomToken(easyTokenBag);
+            currentToken = randomToken(easyTokenBag);
+            tokens.push(currentToken);
             break;
         case "Standard":
-            displayTokenDiv.textContent = randomToken(standardTokenBag);
+            currentToken = randomToken(standardTokenBag);
+            tokens.push(currentToken);
             break;
         case "Hard":
-            displayTokenDiv.textContent = randomToken(hardTokenBag);
+            currentToken = randomToken(hardTokenBag);
+            tokens.push(currentToken);
             break;
         case "Expert":
-            displayTokenDiv.textContent = randomToken(expertTokenBag);
+            currentToken = randomToken(expertTokenBag);
+            tokens.push(currentToken);
     }
+    displayTokenDiv.textContent = currentToken;
 });
 
-//TODO: display to the user, the randomly selected token (instead of cconsole logging it)
-//TODO: display the last drawn token to the user if they keep drawing tokens
+//TODO: display to the user, the randomly selected token (instead of printing text)
+
+//Button used to display the last drawn token to the user if they keep drawing tokens
+const lastDrawnTokenButton = document.getElementById("last-drawn-token-button");
+lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
+    lastDrawnTokenButton.after(displayLastToken);
+    let previous = tokens[tokens.length - 2];
+    displayLastToken.textContent = previous;
+});
