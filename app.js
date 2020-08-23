@@ -11,6 +11,9 @@ const tokenBagDiv = document.createElement('div');
 const displayTokenDiv = document.createElement('div');
 const displayLastToken = document.createElement('div');
 
+//Default the 'last drawn token' button to be hidden
+document.getElementById("last-drawn-token-button").style.display = "none";
+
 //Display the relevant array of tokens to the user on screen once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
 difficultySelector.addEventListener('input', function displayTokens(event){
@@ -60,7 +63,10 @@ drawTokenButton.addEventListener('click', function displayAToken(){
     displayTokenDiv.textContent = currentToken;
 });
 
-//TODO: display to the user, the randomly selected token (instead of printing text)
+//Function to displya the 'Last Drawn Token' button now that a token has been drawn
+document.getElementById("draw-token-button").onclick = function showLastTokenButton () {
+    document.getElementById("last-drawn-token-button").style.display = 'block';
+}
 
 //Button used to display the last drawn token to the user if they keep drawing tokens
 const lastDrawnTokenButton = document.getElementById("last-drawn-token-button");
@@ -69,3 +75,5 @@ lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
     let previous = tokens[tokens.length - 2];
     displayLastToken.textContent = previous;
 });
+
+//TODO: display to the user, the randomly selected token (instead of printing text)
