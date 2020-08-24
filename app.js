@@ -3,7 +3,7 @@ let easyTokenBag = ['+1', '+1', '0', '0', '0', '-1', '-1', '-1', '-2', '-2', 'sk
 let standardTokenBag = ['+1', '0', '0', '-1', '-1', '-1', '-2', '-2', '-3', '-4', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
 let hardTokenBag = ['0', '0', '0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-5', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
 let expertTokenBag = ['0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-4', '-5', '-6', '-8', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
-let tokens = [];
+let pastRolls = [];
 
 //Select main container to add new elements to
 const divContainer = document.querySelector('.container');
@@ -68,24 +68,28 @@ function randomToken(tokenBag) {
 const drawTokenButton = document.getElementById("draw-token-button");
 drawTokenButton.addEventListener('click', function displayAToken(){
     difficultySelector.after(displayTokenDiv);
+    let currentToken = "";
     switch (difficultySelector.value) {
         case "Easy":
             currentToken = randomToken(easyTokenBag);
-            tokens.push(currentToken);
+            pastRolls.push(currentToken);
             break;
         case "Standard":
             currentToken = randomToken(standardTokenBag);
-            tokens.push(currentToken);
+            pastRolls.push(currentToken);
             break;
         case "Hard":
             currentToken = randomToken(hardTokenBag);
-            tokens.push(currentToken);
+            pastRolls.push(currentToken);
             break;
         case "Expert":
             currentToken = randomToken(expertTokenBag);
-            tokens.push(currentToken);
+            pastRolls.push(currentToken);
     }
-    displayTokenDiv.appendChild(currentToken);
+    displayTokenDiv.innerHTML = "";
+    let tokenImage = document.createElement('img');
+    tokenImage.src = "Chaos_Tokens/" + currentToken + ".png";
+    displayTokenDiv.appendChild(tokenImage);
 });
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
@@ -97,8 +101,11 @@ document.getElementById("draw-token-button").onclick = function showLastTokenBut
 const lastDrawnTokenButton = document.getElementById("last-drawn-token-button");
 lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
     lastDrawnTokenButton.after(displayLastToken);
-    let previous = tokens[tokens.length - 2];
-    displayLastToken.appendChild(previous);
+    displayLastToken.innerHTML = "";
+    let previous = pastRolls[pastRolls.length - 2];
+    let tokenImage = document.createElement('img');
+    tokenImage.src = "Chaos_Tokens/" + previous + ".png";
+    displayLastToken.appendChild(tokenImage);
 });
 
 //Function that makes the bag icon clickable and displays modal
