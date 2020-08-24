@@ -44,16 +44,24 @@ difficultySelector.addEventListener('input', function displayTokens(event){
     //Use the Switch statement to evaluate the difficulty value selected
     switch (event.target.value) {
             case "Easy":
-                chaosBagContent.textContent = easyTokenBag;
+                for (var i = 0; i < easyTokenBag.length; i++) {
+                    chaosBagContent.appendChild(easyTokenBag[i]);
+                }
                 break;
             case "Standard":
-                chaosBagContent.textContent = standardTokenBag;
+                for (var i = 0; i < standardTokenBag.length; i++) {
+                    chaosBagContent.appendChild(standardTokenBag[i]);
+                }
                 break;
             case "Hard":
-                chaosBagContent.textContent = hardTokenBag;
+                for (var i = 0; i < hardTokenBag.length; i++) {
+                    chaosBagContent.appendChild(hardTokenBag[i]);
+                }
                 break;
             case "Expert":
-                chaosBagContent.textContent = expertTokenBag;
+                for (var i = 0; i < expertTokenBag.length; i++) {
+                    chaosBagContent.appendChild(expertTokenBag[i]);
+                }
         }
     });
 
