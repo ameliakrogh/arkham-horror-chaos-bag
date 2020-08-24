@@ -73,3 +73,7 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
+
+.tokenImages {
+    display: none;
+}

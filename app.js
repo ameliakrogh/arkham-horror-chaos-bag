@@ -1,8 +1,26 @@
+//Get images for individual tokens
+const positiveOne = document.getElementById('+1');
+const zero = document.getElementById('0');
+const negativeOne = document.getElementById('-1');
+const negativeTwo = document.getElementById('-2');
+const negativeThree = document.getElementById('-3');
+const negativeFour = document.getElementById('-4');
+const negativeFive = document.getElementById('-5');
+const negativeSix = document.getElementById('-6');
+const negativeSeven = document.getElementById('-7');
+const negativeEight = document.getElementById('-8');
+const brokenTablet = document.getElementById('broken-tablet');
+const cthulu = document.getElementById('cthulu');
+const hood= document.getElementById('hood');
+const skull = document.getElementById('skull');
+const star = document.getElementById('star');
+const tentacles = document.getElementById('tentacles');
+
 //Variables for each chaos difficulty. Includes array of available chaos tokens that will be the 'chaos bag'
-let easyTokenBag = ["+1", "+1", "0", "0", "0", "-1", "-1", "-1", "-2", "-2", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
-let standardTokenBag = ["+1", "0", "0", "-1", "-1", "-1", "-2", "-2", "-3", "-4", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
-let hardTokenBag = ["0", "0", "0", "-1", "-1", "-2", "-2", "-3", "-3", "-4", "-5", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
-let expertTokenBag = ["0", "-1", "-1", "-2", "-2", "-3", "-3", "-4", "-4", "-5", "-6", "-8", "skull", "skull", "mask", "broken tablet", "tentacles", "star"]
+let easyTokenBag = [positiveOne, positiveOne, zero, zero, zero, negativeOne, negativeOne, negativeOne, negativeTwo, negativeTwo, skull, skull, hood, brokenTablet, tentacles, star]
+let standardTokenBag = [positiveOne, zero, zero, negativeOne, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeFour, skull, skull, hood, brokenTablet, tentacles, star]
+let hardTokenBag = [zero, zero, zero, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeThree, negativeFour, negativeFive, skull, skull, hood, brokenTablet, tentacles, star]
+let expertTokenBag = [zero, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeThree, negativeFour, negativeFour, negativeFive, negativeSix, negativeEight, skull, skull, hood, brokenTablet, tentacles, star]
 let tokens = [];
 
 //Select main container to add new elements to
@@ -20,7 +38,7 @@ const chaosBagContent = document.querySelector('.modal-body');
 //Get close button
 const closeBtn = document.querySelector('.close-button');
 
-//Display the relevant array of tokens to the user on screen once they select a difficulty
+//Add the relevant array of tokens to the modal once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
 difficultySelector.addEventListener('input', function displayTokens(event){
     //Use the Switch statement to evaluate the difficulty value selected
@@ -65,7 +83,7 @@ drawTokenButton.addEventListener('click', function displayAToken(){
             currentToken = randomToken(expertTokenBag);
             tokens.push(currentToken);
     }
-    displayTokenDiv.textContent = currentToken;
+    displayTokenDiv.appendChild(currentToken);
 });
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
