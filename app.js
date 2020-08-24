@@ -14,23 +14,34 @@ const displayLastToken = document.createElement('div');
 //Default the 'last drawn token' button to be hidden
 document.getElementById("last-drawn-token-button").style.display = "none";
 
+//Get modal element
+const chaosBagModal = document.querySelector('.modal');
+//Get modal content element
+const chaosBagContent = document.querySelector('.modal-body');
+//Get close button
+const closeBtn = document.querySelector('.close-button');
+
 //Display the relevant array of tokens to the user on screen once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
 difficultySelector.addEventListener('input', function displayTokens(event){
-    divContainer.appendChild(tokenBagDiv);
+    //divContainer.appendChild(tokenBagDiv);
     //Use the Switch statement to evaluate the difficulty value selected
     switch (event.target.value) {
             case "Easy":
-                tokenBagDiv.textContent = easyTokenBag;
+                //tokenBagDiv.textContent = easyTokenBag;
+                chaosBagContent.textContent = easyTokenBag;
                 break;
             case "Standard":
-                tokenBagDiv.textContent = standardTokenBag;
+                //tokenBagDiv.textContent = standardTokenBag;
+                chaosBagContent.textContent = standardTokenBag;
                 break;
             case "Hard":
-                tokenBagDiv.textContent = hardTokenBag;
+                //tokenBagDiv.textContent = hardTokenBag;
+                chaosBagContent.textContent = hardTokenBag;
                 break;
             case "Expert":
-                tokenBagDiv.textContent = expertTokenBag;
+                //tokenBagDiv.textContent = expertTokenBag;
+                chaosBagContent.textContent = expertTokenBag;
         }
     });
 
@@ -63,7 +74,7 @@ drawTokenButton.addEventListener('click', function displayAToken(){
     displayTokenDiv.textContent = currentToken;
 });
 
-//Function to displya the 'Last Drawn Token' button now that a token has been drawn
+//Function to display the 'Last Drawn Token' button now that a token has been drawn
 document.getElementById("draw-token-button").onclick = function showLastTokenButton () {
     document.getElementById("last-drawn-token-button").style.display = 'block';
 }
@@ -75,5 +86,28 @@ lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
     let previous = tokens[tokens.length - 2];
     displayLastToken.textContent = previous;
 });
+
+//Function that makes the bag icon clickable
+document.getElementById("bagIcon").onclick = function openModal () {
+    chaosBagModal.style.display = 'block';
+};
+
+//Listen for click on modal close button
+closeBtn.addEventListener('click', closeModal);
+
+//Function to close modal if close button is clicked
+function closeModal () {
+    chaosBagModal.style.display = 'none';
+};
+
+//Listen for outside click
+window.addEventListener('click', outsideClick);
+
+//Function to close modal if window is clicked
+function outsideClick () {
+    if (event.target == chaosBagModal){
+        chaosBagModal.style.display = 'none';
+    }
+}
 
 //TODO: display to the user, the randomly selected token (instead of printing text)
