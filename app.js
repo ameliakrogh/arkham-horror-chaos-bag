@@ -104,30 +104,22 @@ const lastDrawnTokenButton = document.getElementById("last-drawn-token-button");
 lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
     lastDrawnTokenButton.after(displayLastToken);
     let previous = tokens[tokens.length - 2];
-    displayLastToken.textContent = previous;
+    displayLastToken.appendChild(previous);
 });
 
-//Function that makes the bag icon clickable
+//Function that makes the bag icon clickable and displays modal
 document.getElementById("bagIcon").onclick = function openModal () {
     chaosBagModal.style.display = 'block';
 };
 
-//Listen for click on modal close button
-closeBtn.addEventListener('click', closeModal);
-
-//Function to close modal if close button is clicked
-function closeModal () {
+//Function that closes the modal if the close button is clicked
+document.getElementById('close-button').onclick = function closeModal () {
     chaosBagModal.style.display = 'none';
 };
 
-//Listen for outside click
-window.addEventListener('click', outsideClick);
-
-//Function to close modal if window is clicked
-function outsideClick () {
+//Function that closes the modal if user clicks outside the content box
+window.onclick = function outsideClick () {
     if (event.target == chaosBagModal){
         chaosBagModal.style.display = 'none';
     }
 }
-
-//TODO: display to the user, the randomly selected token (instead of printing text)
