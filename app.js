@@ -87,9 +87,12 @@ drawTokenButton.addEventListener('click', function displayAToken(){
             pastRolls.push(currentToken);
     }
     displayTokenDiv.innerHTML = "";
-    let tokenImage = document.createElement('img');
-    tokenImage.src = "Chaos_Tokens/" + currentToken + ".png";
-    displayTokenDiv.appendChild(tokenImage);
+
+    window.setTimeout (function(){
+        let tokenImage = document.createElement('img');
+        tokenImage.src = "Chaos_Tokens/" + currentToken + ".png";
+        displayTokenDiv.appendChild(tokenImage);
+    },500);
 });
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
