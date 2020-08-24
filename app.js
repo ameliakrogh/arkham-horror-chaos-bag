@@ -7,7 +7,6 @@ let tokens = [];
 
 //Select main container to add new elements to
 const divContainer = document.querySelector('.container');
-const tokenBagDiv = document.createElement('div');
 const displayTokenDiv = document.createElement('div');
 const displayLastToken = document.createElement('div');
 
@@ -24,23 +23,18 @@ const closeBtn = document.querySelector('.close-button');
 //Display the relevant array of tokens to the user on screen once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
 difficultySelector.addEventListener('input', function displayTokens(event){
-    //divContainer.appendChild(tokenBagDiv);
     //Use the Switch statement to evaluate the difficulty value selected
     switch (event.target.value) {
             case "Easy":
-                //tokenBagDiv.textContent = easyTokenBag;
                 chaosBagContent.textContent = easyTokenBag;
                 break;
             case "Standard":
-                //tokenBagDiv.textContent = standardTokenBag;
                 chaosBagContent.textContent = standardTokenBag;
                 break;
             case "Hard":
-                //tokenBagDiv.textContent = hardTokenBag;
                 chaosBagContent.textContent = hardTokenBag;
                 break;
             case "Expert":
-                //tokenBagDiv.textContent = expertTokenBag;
                 chaosBagContent.textContent = expertTokenBag;
         }
     });
