@@ -1,26 +1,8 @@
-//Get images for individual tokens
-const positiveOne = document.getElementById('+1');
-const zero = document.getElementById('0');
-const negativeOne = document.getElementById('-1');
-const negativeTwo = document.getElementById('-2');
-const negativeThree = document.getElementById('-3');
-const negativeFour = document.getElementById('-4');
-const negativeFive = document.getElementById('-5');
-const negativeSix = document.getElementById('-6');
-const negativeSeven = document.getElementById('-7');
-const negativeEight = document.getElementById('-8');
-const brokenTablet = document.getElementById('broken-tablet');
-const cthulu = document.getElementById('cthulu');
-const hood= document.getElementById('hood');
-const skull = document.getElementById('skull');
-const star = document.getElementById('star');
-const tentacles = document.getElementById('tentacles');
-
 //Variables for each chaos difficulty. Includes array of available chaos tokens that will be the 'chaos bag'
-let easyTokenBag = [positiveOne, positiveOne, zero, zero, zero, negativeOne, negativeOne, negativeOne, negativeTwo, negativeTwo, skull, skull, hood, brokenTablet, tentacles, star]
-let standardTokenBag = [positiveOne, zero, zero, negativeOne, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeFour, skull, skull, hood, brokenTablet, tentacles, star]
-let hardTokenBag = [zero, zero, zero, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeThree, negativeFour, negativeFive, skull, skull, hood, brokenTablet, tentacles, star]
-let expertTokenBag = [zero, negativeOne, negativeOne, negativeTwo, negativeTwo, negativeThree, negativeThree, negativeFour, negativeFour, negativeFive, negativeSix, negativeEight, skull, skull, hood, brokenTablet, tentacles, star]
+let easyTokenBag = ['+1', '+1', '0', '0', '0', '-1', '-1', '-1', '-2', '-2', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
+let standardTokenBag = ['+1', '0', '0', '-1', '-1', '-1', '-2', '-2', '-3', '-4', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
+let hardTokenBag = ['0', '0', '0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-5', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
+let expertTokenBag = ['0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-4', '-5', '-6', '-8', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
 let tokens = [];
 
 //Select main container to add new elements to
@@ -44,24 +26,36 @@ difficultySelector.addEventListener('input', function displayTokens(event){
     //Use the Switch statement to evaluate the difficulty value selected
     switch (event.target.value) {
             case "Easy":
-                for (var i = 0; i < easyTokenBag.length; i++) {
-                    chaosBagContent.appendChild(easyTokenBag[i]);
-                }
+                chaosBagContent.innerHTML = "";
+                easyTokenBag.forEach (function(token) {
+                    let tokenImage = document.createElement('img');
+                    tokenImage.src = "Chaos_Tokens/" + token + ".png";
+                    chaosBagContent.appendChild(tokenImage);
+                })
                 break;
             case "Standard":
-                for (var i = 0; i < standardTokenBag.length; i++) {
-                    chaosBagContent.appendChild(standardTokenBag[i]);
-                }
+                chaosBagContent.innerHTML = "";
+                standardTokenBag.forEach (function(token) {
+                    let tokenImage = document.createElement('img');
+                    tokenImage.src = "Chaos_Tokens/" + token + ".png";
+                    chaosBagContent.appendChild(tokenImage);
+                })
                 break;
             case "Hard":
-                for (var i = 0; i < hardTokenBag.length; i++) {
-                    chaosBagContent.appendChild(hardTokenBag[i]);
-                }
+                chaosBagContent.innerHTML = "";
+                hardTokenBag.forEach (function(token) {
+                    let tokenImage = document.createElement('img');
+                    tokenImage.src = "Chaos_Tokens/" + token + ".png";
+                    chaosBagContent.appendChild(tokenImage);
+                })
                 break;
             case "Expert":
-                for (var i = 0; i < expertTokenBag.length; i++) {
-                    chaosBagContent.appendChild(expertTokenBag[i]);
-                }
+                chaosBagContent.innerHTML = "";
+                expertTokenBag.forEach (function(token) {
+                    let tokenImage = document.createElement('img');
+                    tokenImage.src = "Chaos_Tokens/" + token + ".png";
+                    chaosBagContent.appendChild(tokenImage);
+                })
         }
     });
 
