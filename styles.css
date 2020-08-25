@@ -3,6 +3,25 @@ header {
     color: #014d54;
 }
 
+.container {
+
+}
+
+.chaosBagSelection {
+    border: 1px solid black;
+
+}
+
+.drawToken {
+    border: 1px solid black;
+
+}
+
+.showPreviousToken {
+    border: 1px solid black;
+
+}
+
 select {
     width: 15%;
     margin-bottom: 1%;
