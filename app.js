@@ -67,7 +67,7 @@ function randomToken(tokenBag) {
 const drawTokenButton = document.getElementById("draw-token-button");
 drawTokenButton.addEventListener('click', function displayAToken(){
     document.querySelector('.drawToken').before(displayTokenDiv);
-    displayTokenDiv.style.height = '50px';
+    displayTokenDiv.style.height = '150px';
     let currentToken = "";
     switch (difficultySelector.value) {
         case "Easy":
