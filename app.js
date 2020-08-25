@@ -6,7 +6,6 @@ let expertTokenBag = ['0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-4', '-5',
 let pastRolls = [];
 
 //Select main container to add new elements to
-const divContainer = document.querySelector('.container');
 const displayTokenDiv = document.createElement('div');
 const displayLastToken = document.createElement('div');
 
@@ -67,7 +66,7 @@ function randomToken(tokenBag) {
 //Depending on difficulty selected, randomly select a token when 'draw chaos token' button is clicked
 const drawTokenButton = document.getElementById("draw-token-button");
 drawTokenButton.addEventListener('click', function displayAToken(){
-    difficultySelector.after(displayTokenDiv);
+    document.querySelector('.drawToken').before(displayTokenDiv);
     displayTokenDiv.style.height = '50px';
     let currentToken = "";
     switch (difficultySelector.value) {

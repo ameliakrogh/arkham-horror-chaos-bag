@@ -9,7 +9,9 @@
     <header>
         <h1>Arkham Chaos Bag</h1>
     </header>
-        <div class = "container"></div>
+        <div class="chaosBagSelection">
+<!-- Token Game Bag Icon-->
+        <img id="bagIcon" src="token_bag.png" alt="token bag icon">
 <!-- A drop down menu that allows you to select your preferred playing difficulty. -->
 <!-- The difficulty selected changes the tokens included in the bag -->
         <select name="difficulty" id="difficulty-select">
@@ -19,12 +21,13 @@
             <option value="Hard">Hard</option>
             <option value="Expert">Expert</option>
         </select>
+        </div>
+        <div class="drawToken">
 <!-- A button that will trigger a function to select a token from the bag at random -->
             <button type="button" id = "draw-token-button">Draw Chaos Token</button>
+        </div>
 <!-- A button that will house the last token that was drawn -->
             <button type="button" id = "last-drawn-token-button">Last Drawn Token</button>
-<!-- Token Game Bag Icon-->
-        <img id="bagIcon" src="token_bag.png" alt="token bag icon">
 <!-- Modal to display contents of selected token bag-->
         <div class="modal">
             <div class="modal-content">

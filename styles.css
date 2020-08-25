@@ -1,13 +1,19 @@
-.container {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-}
-
 header {
     text-align: center;
     color: #014d54;
+}
+
+.chaosBagSelection {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.drawToken {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 }
 
 select {
