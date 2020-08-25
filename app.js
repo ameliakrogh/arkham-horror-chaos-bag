@@ -98,11 +98,13 @@ drawTokenButton.addEventListener('click', function displayAToken(){
         tokenImage.src = "Chaos_Tokens/" + currentToken + ".png";
         displayTokenDiv.appendChild(tokenImage);
     },500);
+
+    displayTokenDiv.style.padding = '25px';
 });
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
 document.getElementById("draw-token-button").onclick = function showLastTokenButton () {
-    document.querySelector('.showPreviousToken').style.display = 'block';
+    document.querySelector('.showPreviousToken').style.display = 'flex';
 }
 
 //Button used to display the last drawn token to the user if they keep drawing tokens
@@ -113,7 +115,7 @@ previousTokenButton.addEventListener('click', function displayLastDrawnToken(){
     let tokenImage = document.createElement('img');
     tokenImage.src = "Chaos_Tokens/" + previous + ".png";
     previousModalContent.appendChild(tokenImage);
-    previousModal.style.display = 'block';
+    previousModal.style.display = 'flex';
 });
 
 //Function that makes the bag icon clickable and displays modal
