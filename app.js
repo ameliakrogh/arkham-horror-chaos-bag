@@ -66,7 +66,7 @@ function randomToken(tokenBag) {
 //Depending on difficulty selected, randomly select a token when 'draw chaos token' button is clicked
 const drawTokenButton = document.getElementById("draw-token-button");
 drawTokenButton.addEventListener('click', function displayAToken(){
-    document.querySelector('.drawToken').before(displayTokenDiv);
+    drawTokenButton.before(displayTokenDiv);
     displayTokenDiv.style.height = '150px';
     let currentToken = "";
     switch (difficultySelector.value) {
