@@ -9,13 +9,13 @@ let pastRolls = [];
 const displayTokenDiv = document.createElement('div');
 const displayLastToken = document.createElement('div');
 
-//Default the 'last drawn token' button to be hidden
-document.getElementById("previous-token-button").style.display = "none";
+//Default the 'previous token' button and icon to be hidden
+document.querySelector('.showPreviousToken').style.display = "none";
 
-//Get modal element
-const chaosBagModal = document.querySelector('.modal');
-//Get modal content element
-const chaosBagContent = document.querySelector('.modal-body');
+//Get chaos bag modal element
+const chaosBagModal = document.querySelector('.bagModal');
+//Get chaos bag- modal content element
+const chaosBagContent = document.querySelector('.bag-modal-body');
 //Get close button
 const closeBtn = document.querySelector('.close-button');
 
@@ -97,7 +97,7 @@ drawTokenButton.addEventListener('click', function displayAToken(){
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
 document.getElementById("draw-token-button").onclick = function showLastTokenButton () {
-    document.getElementById("previous-token-button").style.display = 'block';
+    document.querySelector('.showPreviousToken').style.display = 'block';
 }
 
 //Button used to display the last drawn token to the user if they keep drawing tokens
@@ -117,7 +117,7 @@ document.getElementById("bagIcon").onclick = function openModal () {
 };
 
 //Function that closes the modal if the close button is clicked
-document.getElementById('close-button').onclick = function closeModal () {
+document.getElementById('bag-close-button').onclick = function closeModal () {
     chaosBagModal.style.display = 'none';
 };
 

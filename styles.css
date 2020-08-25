@@ -1,51 +1,65 @@
-header {
-    text-align: center;
-    color: #014d54;
-}
-
 .container {
-    display: flex;
-    flex-direction: column;
     border: 2px solid red;
     width: 500px;
     margin: 0 auto;
 }
 
+header {
+    text-align: center;
+    color: #014d54;
+}
+
 .chaosBagSelection {
+    display: flex;
+    flex-direction: row;
     border: 1px solid black;
     flex: 1;
-}
-
-.drawToken {
-    border: 1px solid black;
-    flex: 1;
-}
-
-.showPreviousToken {
-    border: 1px solid black;
-    flex: 1;
-}
-
-select {
-    width: 15%;
-    margin-bottom: 1%;
-    border: 1px solid #ced4da;
-    color: #495057;
-}
-
-button {
-    width:15%;
-    margin-bottom: 1%;
-    background-color: #659c80;
-    border-color: #659c80;
-    color: #ffffff;
+    align-items: center;
+    justify-content: center;
 }
 
 #bagIcon {
     height: 3em;
 }
 
-.modal {
+.drawToken {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    flex: 1;
+}
+
+.showPreviousToken {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#previousIcon {
+    height: 3em;
+}
+
+select {
+    width: 35%;
+    margin-bottom: 1%;
+    border: 1px solid #ced4da;
+    color: #495057;
+}
+
+button {
+    width:35%;
+    margin-bottom: 1%;
+    background-color: #659c80;
+    border-color: #659c80;
+    color: #ffffff;
+}
+
+.bagModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -74,7 +88,7 @@ button {
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
 }
 
-.modal-body {
+.bag-modal-body {
     padding: 10px 20px;
 }
 
