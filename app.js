@@ -5,12 +5,12 @@ let hardTokenBag = ['0', '0', '0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-5
 let expertTokenBag = ['0', '-1', '-1', '-2', '-2', '-3', '-3', '-4', '-4', '-5', '-6', '-8', 'skull', 'skull', 'hood', 'broken-tablet', 'tentacles', 'star']
 let pastRolls = [];
 
-//Select main container to add new elements to
+//Select parent div to add new elements to
 const displayTokenDiv = document.createElement('div');
 const displayLastToken = document.createElement('div');
 
 //Default the 'last drawn token' button to be hidden
-document.getElementById("last-drawn-token-button").style.display = "none";
+document.getElementById("previous-token-button").style.display = "none";
 
 //Get modal element
 const chaosBagModal = document.querySelector('.modal');
@@ -97,13 +97,13 @@ drawTokenButton.addEventListener('click', function displayAToken(){
 
 //Function to display the 'Last Drawn Token' button now that a token has been drawn
 document.getElementById("draw-token-button").onclick = function showLastTokenButton () {
-    document.getElementById("last-drawn-token-button").style.display = 'block';
+    document.getElementById("previous-token-button").style.display = 'block';
 }
 
 //Button used to display the last drawn token to the user if they keep drawing tokens
-const lastDrawnTokenButton = document.getElementById("last-drawn-token-button");
-lastDrawnTokenButton.addEventListener('click', function displayLastDrawnToken(){
-    lastDrawnTokenButton.after(displayLastToken);
+const previousTokenButton = document.getElementById("previous-token-button");
+previousTokenButton.addEventListener('click', function displayLastDrawnToken(){
+    previousTokenButton.after(displayLastToken);
     displayLastToken.innerHTML = "";
     let previous = pastRolls[pastRolls.length - 2];
     let tokenImage = document.createElement('img');
