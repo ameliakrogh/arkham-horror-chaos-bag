@@ -92,6 +92,25 @@ button {
     padding: 10px 20px;
 }
 
+.previousTokenModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.previous-modal-body{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .close-button {
     float: right;
     font-size: 25px;

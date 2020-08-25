@@ -11,13 +11,18 @@ const displayLastToken = document.createElement('div');
 
 //Default the 'previous token' button and icon to be hidden
 document.querySelector('.showPreviousToken').style.display = "none";
+document.querySelector('.previousTokenModal').style.display = "none";
 
 //Get chaos bag modal element
 const chaosBagModal = document.querySelector('.bagModal');
-//Get chaos bag- modal content element
+//Get chaos bag modal content element
 const chaosBagContent = document.querySelector('.bag-modal-body');
 //Get close button
 const closeBtn = document.querySelector('.close-button');
+//Get previous modal element
+const previousModal = document.querySelector('.previousTokenModal');
+//Get previous modal content element
+const previousModalContent = document.querySelector('.previous-modal-body')
 
 //Add the relevant array of tokens to the modal once they select a difficulty
 const difficultySelector = document.getElementById("difficulty-select");
@@ -103,12 +108,12 @@ document.getElementById("draw-token-button").onclick = function showLastTokenBut
 //Button used to display the last drawn token to the user if they keep drawing tokens
 const previousTokenButton = document.getElementById("previous-token-button");
 previousTokenButton.addEventListener('click', function displayLastDrawnToken(){
-    previousTokenButton.after(displayLastToken);
-    displayLastToken.innerHTML = "";
+    previousModalContent.innerHTML = "";
     let previous = pastRolls[pastRolls.length - 2];
     let tokenImage = document.createElement('img');
     tokenImage.src = "Chaos_Tokens/" + previous + ".png";
-    displayLastToken.appendChild(tokenImage);
+    previousModalContent.appendChild(tokenImage);
+    previousModal.style.display = 'block';
 });
 
 //Function that makes the bag icon clickable and displays modal
@@ -116,14 +121,28 @@ document.getElementById("bagIcon").onclick = function openModal () {
     chaosBagModal.style.display = 'block';
 };
 
-//Function that closes the modal if the close button is clicked
-document.getElementById('bag-close-button').onclick = function closeModal () {
+//Function that closes the bag modal if the close button is clicked
+document.getElementById('bag-close-button').onclick = function closeBagModal () {
     chaosBagModal.style.display = 'none';
 };
 
-//Function that closes the modal if user clicks outside the content box
+//Function that closes the previous token modal if the close button is clicked
+document.getElementById('previous-close-button').onclick = function closePreviousTokenModal () {
+    previousModal.style.display = 'none';
+};
+
+//Function that closes the bag modal if user clicks outside the content box
 window.onclick = function outsideClick () {
     if (event.target == chaosBagModal){
         chaosBagModal.style.display = 'none';
     }
 }
+
+//Function that closes the previous token modal if user clicks outside the content box
+window.onclick = function outsideClick () {
+    if (event.target == previousModal){
+        previousModal.style.display = 'none';
+        console.log('test')
+    }
+}
+
